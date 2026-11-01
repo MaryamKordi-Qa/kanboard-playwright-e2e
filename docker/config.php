@@ -1,0 +1,3 @@
+<?php
+define('BRUTEFORCE_CAPTCHA', 1000);
+define('BRUTEFORCE_LOCKDOWN', 2000);

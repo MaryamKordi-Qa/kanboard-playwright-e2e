@@ -2,6 +2,8 @@ import {test, expect} from '@playwright/test';
 import {LoginPage} from '../../pages/LoginPage';
 import {invalidPassword, invalidUsername, testUser} from '../../test-data/users';
 
+test.use({storageState: {cookies: [], origins: []}})
+
 test.describe('Login', () => {
 
 
