@@ -9,3 +9,4 @@ node_modules/
 /playwright/.auth/
 .env
 .env.*
+!.env.example
