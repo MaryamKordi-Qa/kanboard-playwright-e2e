@@ -2,8 +2,10 @@ import {test} from '@playwright/test'
 import { BoardPage } from '../../pages/BoardPage'
 import { TaskPage } from '../../pages/TaskPage'
 import { LoginPage } from '../../pages/LoginPage';
-import { testUser } from '../../test-data/users';
+import { invalidPassword, invalidUsername, testUser } from '../../test-data/users';
 import { taskTestData, uniqueTitle } from '../../test-data/tasks';
+
+
 
 test('Verify user can create a task', async ({page}) => {
     const loginPage = new LoginPage(page)
