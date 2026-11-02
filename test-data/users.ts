@@ -7,10 +7,5 @@ export const testUser = {
     username: 'admin',
     password,
 }
-export const invalidPassword = {
-
-    password: 'invalidPassword',
-}
-export const invalidUsername = {
-    username: 'invalidUsername',
-}
+export const invalidPassword = 'invalidPassword'
+export const invalidUsername = 'invalidUsername'
