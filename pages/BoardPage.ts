@@ -26,6 +26,9 @@ export class BoardPage{
     async openTask(title:string){
         await this.taskLink(title).click();
     }
+    async expectBoardLoaded(){
+        await expect(this.createTaskButton).toBeVisible();
+    }
 
 
 }
