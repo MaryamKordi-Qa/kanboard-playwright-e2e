@@ -11,7 +11,7 @@ export class BoardPage{
         this.page = page;
         this.projectLink = page.locator('a').filter({ hasText: 'QA Automation Practice' }).first();
         this.createTaskButton =page.locator("th[class='board-column-header board-column-header-1'] a[title='Add a new task']");
-        this.taskLink = (title:string)=> page.locator('.task-board').locator(`a[title='${title}']`);
+        this.taskLink = (title:string)=> page.locator('.task-board').getByRole('link', { name: title , exact: true });
 
 
     }

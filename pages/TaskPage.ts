@@ -13,7 +13,7 @@ export class TaskPage{
         this.titleInput = page.getByRole('textbox', { name: 'Title' });
         this.descriptionInput = page.getByRole('textbox', { name: 'Description' });
         this.saveButton =page.getByRole('button', { name: 'Save' });
-        this.taskTitle = (title:string)=>page.locator(`a[title="${title}"]`);
+        this.taskTitle = (title:string)=>page.locator('.task-board').getByRole('link', { name: title , exact: true });
 
         this.taskDescription = (description:string)=>page.getByText(description, { exact: true });
     }
