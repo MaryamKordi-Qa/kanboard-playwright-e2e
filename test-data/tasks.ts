@@ -12,5 +12,9 @@ export const taskTestData = {
         title:'Task to delete',
         description: 'Created to test deleting',
     },
+    moveTask:{
+        title: 'Task to move',
+        description: 'Created to test drag and drop',
+    },
 }
 export const uniqueTitle = (base:string) => `${base} ${Date.now()}`
