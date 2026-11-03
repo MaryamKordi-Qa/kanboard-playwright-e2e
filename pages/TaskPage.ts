@@ -9,8 +9,10 @@ export class TaskPage{
     readonly taskDescription:(description:string)=>Locator;
     readonly editLink:Locator;
     readonly removeLink:Locator;
-    readonly confirmDeleteButton:Locator
+    readonly confirmDeleteButton:Locator;
     readonly modalCloseButton:Locator;
+    readonly errorValidationMessage:Locator;
+    readonly taskForm:Locator;
 
     constructor(page:Page){
         this.page = page;
@@ -23,6 +25,8 @@ export class TaskPage{
         this.removeLink = page.getByRole('link', { name: 'Remove' });
         this.confirmDeleteButton= page.getByRole('button', { name: 'Yes' });
         this.modalCloseButton = page.locator('#modal-close-button');
+        this.errorValidationMessage = page.getByText('The title is required', { exact: true })
+        this.taskForm = page.locator('div.task-form-container');
     }
 
     async createTask(title: string, description:string){
@@ -50,12 +54,18 @@ export class TaskPage{
         await this.removeLink.click();
         await this.confirmDeleteButton.click();
         await expect(this.modalCloseButton).toBeHidden();
-
     }
 
     async expectTaskNotVisible(title:string){
         await expect(this.taskTitle(title)).toBeHidden();
     }
 
+    async expectErrorValidationMessage(){
+        await expect(this.errorValidationMessage).toBeVisible();
+    }       
+
+    async expectTaskFormToBeVisible(){
+        await expect(this.taskForm).toBeVisible();
+    }
 
 }

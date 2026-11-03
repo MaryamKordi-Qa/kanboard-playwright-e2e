@@ -24,4 +24,19 @@ test('Verify user can create a task', async ({page}) => {
     await boardPage.openTask(title);
     await taskPage.expectTaskDescription(taskTestData.createTask.description);
 
-})
+});
+
+test('Verify user cannot create a task with empty title', async ({page}) => {
+
+    const boardPage = new BoardPage(page);
+    const taskPage = new TaskPage(page);
+
+    await page.goto('/');
+
+    await boardPage.openProject();
+    await boardPage.openCreateTaskForm();
+    await taskPage.createTask('', taskTestData.createTask.description);
+    await taskPage.expectErrorValidationMessage();
+    await taskPage.expectTaskFormToBeVisible();
+
+});
