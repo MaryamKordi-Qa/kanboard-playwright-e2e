@@ -24,4 +24,4 @@ test('Verify user can edit a task', async ({page})=>{
     await taskPage.expectTaskToBeVisible(updatedTitle);
     await taskPage.expectTaskNotVisible(title);
 
-})
+});

@@ -22,4 +22,4 @@ test('Verify user can delete a task', async ({page})=>{
     await boardPage.expectBoardLoaded();
     await taskPage.expectTaskNotVisible(title);
 
-})
+});
