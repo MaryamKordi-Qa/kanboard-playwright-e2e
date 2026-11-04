@@ -42,11 +42,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run tests
+      - name: Run Playwright tests
         run: npx playwright test
         env:
           KANBOARD_PASSWORD: admin
-          BASE_URL: http://localhost:80800
+          BASE_URL: http://localhost:8080
           KANBOARD_API_TOKEN: ${{secrets.KANBOARD_API_TOKEN}}
 
       - name: Upload HTML report
