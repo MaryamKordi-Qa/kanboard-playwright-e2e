@@ -35,6 +35,7 @@ export class BoardPage{
         const source = this.taskLink(title);
         const target = this.column(columnId);
 
+        await source.scrollIntoViewIfNeeded();
         const sourceBox = await source.boundingBox();
         const targetBox = await target.boundingBox();
         if (!sourceBox || !targetBox){
