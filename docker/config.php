@@ -1,3 +1,4 @@
 <?php
 define('BRUTEFORCE_CAPTCHA', 1000);
 define('BRUTEFORCE_LOCKDOWN', 2000);
+define('API_AUTHENTICATION_TOKEN', getenv('API_TOKEN'));

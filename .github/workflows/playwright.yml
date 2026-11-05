@@ -18,9 +18,10 @@ jobs:
       - name: Start Kanboard
         run: |
           docker run -d --name kanboard -p 8080:80 \
+            -e API_TOKEN=${{ secrets.KANBOARD_API_TOKEN }} \
             -v ${{ github.workspace }}/docker/config.php:/var/www/app/data/config.php \
             kanboard/kanboard:latest
-
+            
       - name: Wait for Kanboard
         run: |
           for i in $(seq 1 30); do
