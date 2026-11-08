@@ -29,10 +29,11 @@ try{
     await taskPage.expectTaskDescription(taskTestData.createTask.description);
 }finally{
     try{
-        const taskId = await taskApi.createTask(projectId, title, taskTestData.createTask.description);
+        const taskId = await taskApi.findTaskByTitle(projectId, title);
         await taskApi.removeTask(taskId);
-    }catch{
+    }catch(error){
 
+        console.warn('Cleanup failed for task', title, error);
     }   
 }
 
