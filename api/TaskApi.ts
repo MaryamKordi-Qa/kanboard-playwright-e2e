@@ -30,7 +30,7 @@ export class TaskApi{
     }
 
     async createTask(projectId: number, title: string, description: string): Promise<number>{
-        const taskId = await this.call('createTask', {project_id: projectId, title, description:""});
+        const taskId = await this.call('createTask', {project_id: projectId, title, description});
         expect(taskId, 'createTask failed').toBeTruthy();
         return Number(taskId);
     }
