@@ -24,11 +24,12 @@ test.describe('Login', () => {
         await loginPage.login(testUser.username, invalidPassword);
         await expect(loginPage.errorMessage).toBeVisible();
     });
-    test('Login fails an invalid username', async({page}) => {
+    test('Login fails with an invalid username', async({page}) => {
         const loginPage = new LoginPage(page);
         await loginPage.open();
         await loginPage.expectLoginFormVisible();
-        await loginPage.login(invalidUsername, testUser.password)
+        await loginPage.login(invalidUsername, testUser.password);
+        await expect(loginPage.errorMessage).toBeVisible();
     })
 
     test('Login fails with empty username', async ({page}) => {
